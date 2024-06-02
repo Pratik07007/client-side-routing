@@ -1,15 +1,22 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 
 const ProductCard = ({ product }) => {
-  const { name, originalPrice, discountedPrice, desc, images } =
-    product;
+  const { name, originalPrice, discountedPrice, desc, images, _id } = product;
 
   return (
     <div className="bg-white shadow-md rounded-lg p-4 mb-4 w-96 flex-shrink-0">
       {/* Product Image */}
-      <div className="mb-4">
-        <img src={images[0]} alt={name} className="w-full h-auto rounded-md" />
-      </div>
+      <Link to={`/products/${_id}`}>
+        <div className="mb-4">
+          <img
+            src={images[0]}
+            alt={name}
+            className="w-full h-auto rounded-md"
+          />
+        </div>
+      </Link>
       {/* Product Info */}
       <div className="text-gray-800">
         <h2 className="text-lg font-semibold">{name}</h2>

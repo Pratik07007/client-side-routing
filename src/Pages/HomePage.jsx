@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ProductCard from "../components/ProductCard";
 
-
 const HomePage = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
@@ -10,17 +9,16 @@ const HomePage = () => {
       .then((res) => setProducts(res.product));
   }, []);
   return (
-    // <>
-    //   <div className="flex items-start">
-    //     {products.map((product) => (
-    //       <Produc`tCard key={product._id} product={product} />
-    //     ))}
-    //   </div>
-    // </>
+    <>
+    
 
-    <div className="w-screen bg-red-400">
-      <h1>Apple</h1>
-    </div>
+    <h1 className="text-5xl text-center text-red-500">ALL PRODUCTS</h1>
+      <div className="flex flex-wrap justify-center gap-4">
+        {products.map((product) => (
+          <ProductCard key={product._id} product={product} />
+        ))}
+      </div>
+    </>
   );
 };
 
