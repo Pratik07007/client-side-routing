@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import BASE_URL from "../../utils/BASE_URL";
 
-const ProductDetails = ({ match }) => {
+
+const ProductDetails = () => {
   const { _id } = useParams();
   const [product, setProduct] = useState(null);
-  console.log(product);
+//   console.log(product);
   useEffect(() => {
-    fetch(`http://localhost:3000/Allproducts/${_id}`)
+    fetch(`${BASE_URL}/Allproducts/${_id}`)
       .then((res) => res.json())
       .then((data) => setProduct(data.product))
       .catch((error) => console.error("Error fetching product:", error));
